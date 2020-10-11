@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'calc-notas',
+    loadChildren: () => import('./calc-notas/calc-notas.module').then( m => m.CalcNotasPageModule)
+  },
 ];
 
 @NgModule({

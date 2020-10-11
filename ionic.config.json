@@ -1,5 +1,7 @@
 {
   "name": "TrabalhoPratico",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

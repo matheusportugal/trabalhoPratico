@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{data.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nota 1</ion-label>
+    <ion-input
+      name="nota1"
+      [(ngModel)]="nota1"
+      type="number"
+      [value]="nota1"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nota 2</ion-label>
+    <ion-input
+      name="nota2"
+      [(ngModel)]="nota2"
+      type="number"
+      [value]="nota2"
+    ></ion-input>
+  </ion-item>
+
+  <ion-button
+    class="btn"
+    expand="block"
+    [disabled]="nota1 === undefined || nota2 === undefined"
+    (click)="calcMedia()"
+    >Calcular</ion-button
+  >
+
+  <ion-card *ngIf="media !== 0">
+    <ion-card-header>
+      <ion-card-title>{{data.username}}</ion-card-title>
+      <div *ngIf="media < 7">
+        <ion-card-subtitle
+          >A média do aluno é: {{media.toFixed(2)}}
+        </ion-card-subtitle>
+        <ion-icon class="iconSad" name="sad"></ion-icon>
+      </div>
+      <div *ngIf="media >= 7">
+        <ion-card-subtitle
+          >A média do aluno é: {{media.toFixed(2)}}
+        </ion-card-subtitle>
+        <ion-icon class="iconHappy" name="happy"></ion-icon>
+      </div>
+    </ion-card-header>
+  </ion-card>
+</ion-content>
